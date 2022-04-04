@@ -8,7 +8,7 @@
 </head>
 <body>
     <!-- Form For Getting the number of rows and columns for the matrix -->
-    <form action="test.php" method='GET'>
+    <form action="test.php" method='POST'>
         Number Of Rows:<input type='number' name='row' placeholder='Enter Number Of Rows' /><br><br>
         Number Of Columns:<input type='number' name='col' placeholder='Enter Number Of Columns' /><br><br>
         <input type='submit' name='submit' value='Submit'/>
