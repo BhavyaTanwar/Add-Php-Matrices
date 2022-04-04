@@ -1,7 +1,16 @@
-<?php if(isset($_POST['submit'])){ 
+<?php 
+if(isset($_POST['submit'])){ 
+    $rows = $_POST["row"];
+    $columns = $_POST["col"];
+    if($rows<1 || $columns<1){
+        echo '<script>alert("Dimensions must be greater than 0")</script>';
+        die();
+    }
+    if($rows>5 || $columns>5){
+        echo '<script>alert("Maximum Size Exceeded")</script>';
+        die();
+    }
     echo "<form action= 'result.php' method='POST'>";
-        $rows = $_POST["row"];
-        $columns = $_POST["col"];
         // Values for first matrix 
         echo "Enter The Values for 1st ".$rows."*"."$columns"." Matrix<br><br>";
         for($i=0;$i<$rows;$i++){
@@ -27,4 +36,5 @@
         }
         echo "<input type='submit' name='submitMatrix' value='Submit'/>";
     echo "</form>";   
- } ?>
+ } 
+ ?>
