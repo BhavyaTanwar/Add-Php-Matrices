@@ -1,15 +1,6 @@
 <?php 
-if(isset($_POST['submit'])){ 
     $rows = $_POST["row"];
-    $columns = $_POST["col"];
-    if($rows<1 || $columns<1){
-        echo '<script>alert("Dimensions must be greater than 0")</script>';
-        die();
-    }
-    if($rows>5 || $columns>5){
-        echo '<script>alert("Maximum Size Exceeded")</script>';
-        die();
-    }
+    $columns = $_POST["column"];
     echo "<form action= 'result.php' method='POST'>";
         // Values for first matrix 
         echo "Enter The Values for 1st ".$rows."*"."$columns"." Matrix<br><br>";
@@ -18,7 +9,7 @@ if(isset($_POST['submit'])){
                 $m = $i+1;
                 $n = $j+1;
                 $k = $m.$n;
-                echo "&nbsp &nbsp &nbsp &nbsp Enter ($m,$n) element:<input type='number' name='matrix$k' /><br><br>";
+                echo "&nbsp &nbsp &nbsp &nbsp Enter ($m,$n) element:<input type='number' name='matrix$k' required/><br><br>";
             }
         }
         // To store the values for rows and columns
@@ -31,10 +22,9 @@ if(isset($_POST['submit'])){
                 $m = $i+1;
                 $n = $j+1;
                 $k = $m.$n;
-                echo "&nbsp &nbsp &nbsp &nbsp Enter ($m,$n) element:<input type='number' name='matrixx$k' /><br><br>";
+                echo "&nbsp &nbsp &nbsp &nbsp Enter ($m,$n) element:<input type='number' name='matrixx$k' required/><br><br>";
             }
         }
         echo "<input type='submit' name='submitMatrix' value='Submit'/>";
     echo "</form>";   
- } 
  ?>
