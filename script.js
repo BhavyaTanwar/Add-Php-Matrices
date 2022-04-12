@@ -1,38 +1,53 @@
-function checkForm() {
-    // Fetching values for rows and columns
+function indexValidate(){
+    var error = false;
     var row = document.getElementById("row1").value;
     var column = document.getElementById("column1").value;
-    //input should not be blank.
-    if (row == '' || column == '' ) {
-        alert("Fill All Fields");
-    } else {
-        //For displaying error msgs
-        var row1 = document.getElementById("row");
-        var column1 = document.getElementById("column");
-        // display error if any
-        if (row1.innerHTML == '<p>Dimension must be greater than 0</p>' ||row1.innerHTML == '<p>Dimension must be less than 6</p>' || column1.innerHTML == '<p>Dimension must be greater than 0</p>' || column1.innerHTML == '<p>Dimension must be less than 6</p>' ) {
-            alert("Fill Valid Information");
-        } else {
-            //Submit Form if no error
-            document.getElementById("rowcolForm").submit();
-        }
+    if(row == '' || column == ''){
+        alert("Fill All Details");
+        error = true;
+    }
+    else if (row < 1 || column < 1) {
+        alert("Dimension must be greater than 0");
+        error = true;
+    }else if(row > 5 || column > 5){
+        alert("Dimension must be less than 6");
+        error = true;
+    }
+    if(error == true){
+        return false;
+    }else{
+        return true;
     }
 }
 
-// validation when onblur.
-function validate(field, query) {
-    var xmlhttp = new XMLHttpRequest();
-    // xmlhttp.readyState == 4  => for complete operation         xmlhttp.status == 200  => OK (no error...)
-    xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState != 4 && xmlhttp.status == 200) {
-            document.getElementById(field).innerHTML = "Validating..";
-        } else if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            document.getElementById(field).innerHTML = xmlhttp.responseText;
-        } else {
-            document.getElementById(field).innerHTML = "Error Occurred. <a href='index.html'>Reload Or Try Again</a> the page.";
+function testValidate(){
+    var error = false;
+    var row = document.getElementById("row1").value;
+    var column = document.getElementById("column1").value;
+    for(i=0;i<row;i++){
+        for(j=0;j<column;j++){
+            // var a = "matrix";
+            // var b = "matrixx";
+            var m = i+1;
+            var n = j+1;
+            var k = ''+m+n;
+            var id1 = "matrix"+k;
+            var id2 = "matrixx"+k;
+            var field1 = document.getElementById(id1).value;
+            var field2 = document.getElementById(id2).value;
+            if(field1==''){
+                alert("Fill "+k+"th element value for matrix 1");
+                error = true;
+            }
+            if(field2==''){
+                alert("Fill "+k+"th element value for matrix 2");
+                error = true;
+            }
         }
     }
-    // sendng the field and query for validation... 
-    xmlhttp.open("GET", "validation.php?field=" + field + "&query=" + query, false);
-    xmlhttp.send();
+    if(error == true){
+        return false;
+    }else{
+        return true;
+    }
 }

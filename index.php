@@ -6,35 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adding Two Matrices</title>
     <script src="script.js"></script>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="mainform">
         <div class="innerdiv">
             <h2>Addition of 2 Matrices</h2>
             <!-- Form For Getting the number of rows and columns for the matrix -->
-            <form action="test.php" method='POST' id="rowcolForm" name="rowcolForm">
+            <form action="test.php" method='POST' name="rowcolForm" onsubmit="return indexValidate()">
                 <table>
                     <p>
                     <tr>
                         <td>Number Of Rows:</td>
-                        <td><input id='row1' name='row' onblur="validate('row', this.value)" type='number'></td>
-                        <td>
-                            <div id='row'></div>
-                        </td>
+                        <td><input id='row1' name='row' type='number'></td>
                     </tr>
                 </p>
                 <p>
                     <tr>
                         <td>Number Of Columns:</td>
-                        <td><input id='column1' name='column' onblur="validate('column', this.value)" type='number'></td>
-                        <td>
-                            <div id='column'></div>
-                        </td>
+                        <td><input id='column1' name='column' type='number'></td>
                     </tr>
                 </p>
                 </table>
-            <input onclick="checkForm()" type='button' value='Submit'>
+            <input type='submit' name='submit' value='Submit'>
             </form>
         </div>
     </div>
