@@ -11,6 +11,7 @@
 <?php 
     if(isset($_POST['submit'])){
         ?>
+        <div style = "color:red" id="testerror"></div>
         <form action= 'result.php' method='POST' onsubmit='return testValidate()'>
         <?php
             $rows = $_POST["row"];
@@ -30,7 +31,7 @@
             //To store the values for rows and columns
             echo "<input type='hidden' id='row1' name='rows' value='$rows' />";
             echo "<input type='hidden' id='column1' name='columns' value='$columns' />";
-            echo "<input type='hidden' id='submit' name='submit' value='$columns' />";
+            echo "<input type='hidden' id='submit' name='submit' value='$submit' />";
             
             // Values for second matrix
             echo "Enter The Values for 2nd ".$rows."*"."$columns"." Matrix<br><br>" ;

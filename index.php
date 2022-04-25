@@ -11,6 +11,7 @@
     <div id="mainform">
         <div class="innerdiv">
             <h2>Addition of 2 Matrices</h2>
+            <div style = "color:red" id="error"></div>
             <!-- Form For Getting the number of rows and columns for the matrix -->
             <form action="test.php" method='POST' name="rowcolForm" onsubmit="return indexValidate()">
                 <table>
